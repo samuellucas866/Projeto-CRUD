@@ -1,0 +1,99 @@
+{%load static%}
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Profissionais</h2>
+<button class="btn btn-primary mb-3" data-toggle="modal" data-target="#add-profissional-modal">Adicionar Profissional</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Especialidade</th>
+            <th>CRM</th>
+            <th>Email</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody id="profissionais-list">
+        <!-- Lista de profissionais será carregada aqui -->
+    </tbody>
+</table>
+<a href="{% url 'home' %}" class="btn btn-secondary mt-3">Voltar para Home</a>
+
+<!-- Modal para Adicionar Profissional -->
+<div class="modal fade" id="add-profissional-modal" tabindex="-1" role="dialog" aria-labelledby="addProfissionalModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addProfissionalModalLabel">Adicionar Profissional</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="add-profissional-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="especialidade">Especialidade</label>
+                        <input type="text" class="form-control" id="especialidade" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="crm">CRM</label>
+                        <input type="text" class="form-control" id="crm" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Editar Profissional -->
+<div class="modal fade" id="edit-profissional-modal" tabindex="-1" role="dialog" aria-labelledby="editProfissionalModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editProfissionalModalLabel">Editar Profissional</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="edit-profissional-form">
+                <div class="modal-body">
+                    <input type="hidden" id="edit-id">
+                    <div class="form-group">
+                        <label for="edit-nome">Nome</label>
+                        <input type="text" class="form-control" id="edit-nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-especialidade">Especialidade</label>
+                        <input type="text" class="form-control" id="edit-especialidade" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-crm">CRM</label>
+                        <input type="text" class="form-control" id="edit-crm" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Email</label>
+                        <input type="email" class="form-control" id="edit-email" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

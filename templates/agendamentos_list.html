@@ -1,0 +1,108 @@
+{% load static %}
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Agendamentos</h2>
+<button class="btn btn-primary mb-3" data-toggle="modal" data-target="#add-agendamento-modal">Adicionar Agendamento</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Paciente</th>
+            <th>Profissional</th>
+            <th>Procedimento</th>
+            <th>Sala</th>
+            <th>Data</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody id="agendamentos-list">
+        <!-- Lista de agendamentos será carregada aqui -->
+    </tbody>
+</table>
+<a href="{% url 'home' %}" class="btn btn-secondary mt-3">Voltar para Home</a>
+
+<!-- Modal para Adicionar Agendamento -->
+<div class="modal fade" id="add-agendamento-modal" tabindex="-1" role="dialog" aria-labelledby="addAgendamentoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addAgendamentoModalLabel">Adicionar Agendamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="add-agendamento-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="paciente">Paciente</label>
+                        <input type="text" class="form-control" id="paciente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profissional">Profissional</label>
+                        <input type="text" class="form-control" id="profissional" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="procedimento">Procedimento</label>
+                        <input type="text" class="form-control" id="procedimento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sala">Sala</label>
+                        <input type="text" class="form-control" id="sala" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Data</label>
+                        <input type="datetime-local" class="form-control" id="data" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Editar Agendamento -->
+<div class="modal fade" id="edit-agendamento-modal" tabindex="-1" role="dialog" aria-labelledby="editAgendamentoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editAgendamentoModalLabel">Editar Agendamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="edit-agendamento-form">
+                <div class="modal-body">
+                    <input type="hidden" id="edit-id">
+                    <div class="form-group">
+                        <label for="edit-paciente">Paciente</label>
+                        <input type="text" class="form-control" id="edit-paciente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-profissional">Profissional</label>
+                        <input type="text" class="form-control" id="edit-profissional" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-procedimento">Procedimento</label>
+                        <input type="text" class="form-control" id="edit-procedimento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-sala">Sala</label>
+                        <input type="text" class="form-control" id="edit-sala" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-data">Data</label>
+                        <input type="datetime-local" class="form-control" id="edit-data" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

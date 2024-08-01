@@ -1,0 +1,81 @@
+{%load static%}
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Salas</h2>
+<button class="btn btn-primary mb-3" data-toggle="modal" data-target="#add-sala-modal">Adicionar Sala</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody id="salas-list">
+        <!-- Lista de salas será carregada aqui -->
+    </tbody>
+</table>
+<a href="{% url 'home' %}" class="btn btn-secondary mt-3">Voltar para Home</a>
+
+<!-- Modal para Adicionar Sala -->
+<div class="modal fade" id="add-sala-modal" tabindex="-1" role="dialog" aria-labelledby="addSalaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addSalaModalLabel">Adicionar Sala</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="add-sala-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao">Descrição</label>
+                        <textarea class="form-control" id="descricao" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Editar Sala -->
+<div class="modal fade" id="edit-sala-modal" tabindex="-1" role="dialog" aria-labelledby="editSalaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editSalaModalLabel">Editar Sala</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="edit-sala-form">
+                <div class="modal-body">
+                    <input type="hidden" id="edit-id">
+                    <div class="form-group">
+                        <label for="edit-nome">Nome</label>
+                        <input type="text" class="form-control" id="edit-nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-descricao">Descrição</label>
+                        <textarea class="form-control" id="edit-descricao" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

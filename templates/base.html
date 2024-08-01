@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Clinica{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'paciente-list' %}">Pacientes</a></li>
+            <li><a href="{% url 'profissional-list' %}">Profissionais</a></li>
+            <li><a href="{% url 'procedimento-list' %}">Procedimentos</a></li>
+            <li><a href="{% url 'agendamento-list' %}">Agendamentos</a></li>
+            <li><a href="{% url 'sala-list' %}">Salas</a></li>
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

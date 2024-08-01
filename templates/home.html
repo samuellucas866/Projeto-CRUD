@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Bem-vindo ao Sistema Clínico</h1>
+<ul>
+    <li><a href="{% url 'paciente-list' %}">Pacientes</a></li>
+    <li><a href="{% url 'profissional-list' %}">Profissionais</a></li>
+    <li><a href="{% url 'procedimento-list' %}">Procedimentos</a></li>
+    <li><a href="{% url 'agendamento-list' %}">Agendamentos</a></li>
+    <li><a href="{% url 'sala-list' %}">Salas</a></li>
+</ul>
+{% endblock %}
